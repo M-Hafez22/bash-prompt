@@ -16,7 +16,7 @@ function parse_git_dirty {
    printf ""
 }
 
-# get current status of git repo
+# List programming language used in the current folder
 function lang {
    LANG="$(ls 2>/dev/null)"
    if [[ $? -ne 0 ]]; then
