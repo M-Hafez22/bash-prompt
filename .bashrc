@@ -33,7 +33,7 @@ function lang {
    printf ""
 }
 
-# Check the host  or 
+# Check the repo host  or 
 function git_repo {
    REPO="$(git remote -v 2>/dev/null)"
    if [[ $? -ne 0 ]]; then
