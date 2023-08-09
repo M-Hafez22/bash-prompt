@@ -116,6 +116,26 @@ __export_ps1() {
 __export_ps1
 PROMPT_COMMAND='__export_ps1'
 
+# Welcome Message
+printf "\n"
+printf "\e[1;33mKernel: \e[33m$(uname -r)"
+printf "\n"
+NODE="$(node -v)"
+printf "\e[1;34mNode:\e[36m${NODE}"
+printf " "
+NPM="$(npm -v)"
+printf "\e[1;34mNpm:\e[36m${NPM}"
+printf " "
+YARN="$(yarn -v)"
+printf "\e[1;34mYarn:\e[36m${YARN}"
+printf " "
+TS="$(tsc -v | grep -oE '[^ ]+$')"
+printf "\e[1;34mTypescript:\e[36m${TS}"
+printf "\n"
+printf "\e[1;35m"
+ansiweather -l 'Beni Suef,EG' -a false -w false -p false -i false -h false -H true -s true
+printf "\n"
+
 # Ignore case sensitivity
 bind -s 'set completion-ignore-case on'
 
