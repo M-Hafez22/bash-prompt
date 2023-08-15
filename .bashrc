@@ -110,8 +110,18 @@ battery_state_capacity() {
    echo -e "${STATE}${COLOR}${CAPACITY}\e[0m"
 }
 
+day_or_night() {
+   hour=$(date +"%H")
+   sunset=19
+   if [[ $hour -lt $sunset ]]; then
+      echo "☀️ "
+   else
+      echo "🌙"
+   fi
+}
+
 __export_ps1() {
-   export PS1="\n\e[1;31m  \e[0m[$(battery_state_capacity)]-\e[0m[\e[1;33m \W\e[0m]-\e[0m[\e[33m\$(parse_git_branch)\e[31m \$(parse_git_dirty)\$(git_repo)\e[0m]-[\$(lang)]\e[0m\n "
+   export PS1="\n\e[1;31m  \e[0m[$(battery_state_capacity)]_[\e[1;33m\A $(day_or_night)\e[0m]_\e[0m[\e[1;33m \W\e[0m]_\e[0m[\e[33m\$(parse_git_branch)\e[31m \$(parse_git_dirty)\$(git_>
 }
 __export_ps1
 PROMPT_COMMAND='__export_ps1'
