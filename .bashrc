@@ -113,10 +113,10 @@ battery_state_capacity() {
 day_or_night() {
    hour=$(date +"%H")
    sunset=19
-   if [[ $hour -lt $sunset ]]; then
-      echo "☀️ "
-   else
+   if [[ $hour -gt $sunset ]]; then
       echo "🌙"
+   else
+      echo "☀️ "
    fi
 }
 
